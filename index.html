@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>F1 API Challenge</title>
+    <style>
+    body {
+        margin: auto;
+        font-size: 12px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        line-height: 1.5;
+        min-height: 100vh;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .box {
+        width: 450px;
+        margin: auto;
+        padding: 1rem;
+        color: black;
+        background-color: white;
+        position: relative;
+        border: 5px solid transparent;
+        box-sizing: border-box;
+        background-clip: padding-box;
+        border-radius: 1.5rem;
+    }
+
+    .box::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        margin: -5px;
+        border-radius: 1.5rem; /*may also write 'inherit' which will assume whatever the parent container (.box) has*/
+        background: linear-gradient(200deg, black, rgb(126, 0, 0), red);
+    }
+
+    input[type="button"] {
+        background-color: transparent;
+        border: black solid 2.5px;
+        border-radius: 0.75rem;
+        color: black;
+        padding: 7.5px;
+        text-decoration: none;
+        margin: 4px 4px;
+        cursor: pointer;
+    }
+    </style>
+    <img src="assets/F1.svg.png" width="600px" height="250px" />
+</head>
+
+<body>
+    <div class="#"></div>
+
+    <form>
+    <header>
+        <h1>Ladies and Gentlemen... <br />Start your engines!</h1>
+    </header>
+
+    <div class="box">
+        <p>
+        Search for your favorite F-1 drivers by name to see their most recent race schedule and get a list of results and lap times.
+        </p>
+
+        <label for="search"><b>Search F1 Drivers</b></label>
+        <input type="text" name="search" id="search" placeholder="Last Name" />
+        <input onclick="getdriverId(event)" type="button" value="Get Results" />
+    </div>
+    </form>
+    <div id="searchContainer"></div>
+    <div id="container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
